@@ -1,4 +1,4 @@
-# pymunk-4.py
+# pymunk-2.py
 #? (0) Importar librerías necesarias
 import pygame
 import pymunk
@@ -23,6 +23,9 @@ def run(window, ancho, alto):
     space = pymunk.Space()
     space.gravity = (0, 981); # * Define la gravedad en x,y (y aumenta hacia abajo)
 
+    # Crear bola con create_ball()
+    ball = create_ball(space, 50, 10)
+
     draw_options = pymunk.pygame_util.DrawOptions(window)
 
     while run:
@@ -33,9 +36,7 @@ def run(window, ancho, alto):
         draw(space, window, draw_options)
         space.step(dt) # Rapidez de la simulación
         clock.tick(fps)
-
         pygame.display.set_caption(str(pygame.time.get_ticks()/1000) + ' segundos')
-
     pygame.quit()
 
 
@@ -45,6 +46,18 @@ def draw(space, window, draw_options):
     space.debug_draw(draw_options)
     pygame.display.update()
 
+# ?(4) Add object
+def create_ball(space, radius, mass):
+    body = pymunk.Body() # Create a rigid body
+    body.position = (300,300) # Initial coordinates of the center of the body
+    shape = pymunk.Circle(body, radius)  # Característica del objeto
+    # ! Definir atributos del objeto:
+    shape.mass = mass
+    shape.color = (255,0,0,255)
+    space.add(body, shape)
+    return shape
+
 # Iniciar a correr el codigo con la variable especial __main__
 if __name__ == "__main__":
     run(window, ANCHO, ALTO)
+
