@@ -10,7 +10,7 @@ import math
 pygame.init()
 ANCHO, ALTO = 1000, 750
 window = pygame.display.set_mode((ANCHO, ALTO))
-pygame.display.set_caption("PYGAME: Simulación")
+# pygame.display.set_caption("PYGAME: Simulación")
 
 
 #? (2) 
@@ -35,6 +35,8 @@ def run(window, ancho, alto):
         space.step(dt) # Rapidez de la simulación
         clock.tick(fps)
 
+        pygame.display.set_caption(str(pygame.time.get_ticks()/1000) + ' segundos')
+
     pygame.quit()
 
 
@@ -44,5 +46,6 @@ def draw(space, window, draw_options):
     space.debug_draw(draw_options)
     pygame.display.update()
 
+# Iniciar a correr el codigo con la variable especial __main__
 if __name__ == "__main__":
     run(window, ANCHO, ALTO)
