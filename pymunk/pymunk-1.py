@@ -46,4 +46,3 @@ def draw(space, window, draw_options):
 
 if __name__ == "__main__":
     run(window, ANCHO, ALTO)
-
