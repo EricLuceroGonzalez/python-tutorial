@@ -1,7 +1,7 @@
 # python-tutorial
 
 El repositorio tiene tres carpetas:
-- **folium-maps**\
+- **folium-maps**
   - 💾 Contiene los archivos usados en clase en formato python y Jupyter. Incluidos los archivos `csv` y `html` generados en clase. en general es un tutorial básico de `pandas.DataFrames` y mapas en `Folium`.\
   - Se recomienda descargarlo o copiar/pegar en su propio código y correrlo.\
   - Lo ideal sería crear una cuenta Github y clonar este repositorio.
