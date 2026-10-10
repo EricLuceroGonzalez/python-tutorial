@@ -17,7 +17,7 @@ ground.elasticity = 1
 space.add(ground)
 
 # Create a dynamic ball
-ball_mass = 1
+ball_mass = 10
 ball_radius = 30
 ball_moment = pymunk.moment_for_circle(ball_mass, 0, ball_radius)
 ball_body = pymunk.Body(ball_mass, ball_moment)
@@ -25,6 +25,18 @@ ball_body.position = (400, 300)
 ball_shape = pymunk.Circle(ball_body, ball_radius)
 ball_shape.elasticity = 0.5
 space.add(ball_body, ball_shape)
+x = 0
+y = 0
+cube_mass = 1
+cube_body = pymunk.Body(cube_mass)
+# cube_body.position(30,30)
+
+widthxx, heightyy = 30, 30
+vs = [(10, 10), (widthxx, 90), (widthxx, heightyy), (90, heightyy)]
+cube_shape = pymunk.Poly(cube_body, vs)
+cube_shape = pymunk.Poly(cube_body,((x,y),(x+100,y),(x+100,y+100),(x,y+100)))
+cube_shape.elasticity = 0.1
+space.add(cube_body,cube_shape)
 
 running = True
 while running:
