@@ -1,0 +1,7 @@
+# macOS
+.DS_Store
+
+# Secretos: el .env real nunca va a Git (sí el .env.example)
+.env
+.env.local
+.env.*.local
